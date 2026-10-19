@@ -102,7 +102,6 @@
      serialized as "Label: value" lines and opened in the visitor's email app.
      Long answers can exceed what some email apps accept in a mailto link,
      so the endpoint is the better option. */
-  // TODO: confirm the address that should receive applications
   var RECIPIENT = 'ekaagar.chawla@gmail.com';
 
   function labelFor(el) {
