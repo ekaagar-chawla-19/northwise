@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get a Tutor | Northwise</title>
+  <meta name="description" content="Sign up for free math tutoring for students in grades 7 to 11." />
+  <meta name="theme-color" content="#16264A" />
+
+  <!-- Open Graph / social share -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Get a Tutor | Northwise" />
+  <meta property="og:description" content="Sign up for free math tutoring for students in grades 7 to 11." />
+  <meta property="og:site_name" content="Northwise" />
+  <!-- TODO: replace with your live URL and a 1200x630 social image when you deploy -->
+  <meta property="og:url" content="https://northwise.example" />
+  <meta property="og:image" content="https://northwise.example/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts: Fraunces (display serif) + Plus Jakarta Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Apply saved theme before paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('nw-theme');
+        var dark = saved ? saved === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Reusable SVG symbols (compass brand mark) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="22" fill="#16264A"/>
+      <circle cx="24" cy="24" r="22" fill="none" stroke="#C9A227" stroke-width="1.5"/>
+      <path d="M24 6 L27 21 L42 24 L27 27 L24 42 L21 27 L6 24 L21 21 Z" fill="#C9A227"/>
+      <path d="M24 12 L26 22 L36 24 L26 26 L24 36 L22 26 L12 24 L22 22 Z" fill="#FAF8F3" opacity="0.9"/>
+      <circle cx="24" cy="24" r="2.4" fill="#E8845B"/>
+    </symbol>
+  </svg>
+
+  <!-- FluidGlass refraction filter for the nav hover lens -->
+  <svg id="fluidDefs" width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="fluid-lens" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="12" result="n"/>
+      <feGaussianBlur in="n" stdDeviation="1.2" result="nb"/>
+      <feDisplacementMap in="SourceGraphic" in2="nb" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a href="index.html" class="brand" aria-label="Northwise home">
+        <svg class="mark" aria-hidden="true"><use href="#mark"/></svg>
+        Northwise
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a class="navlink" href="courses.html">Courses</a>
+        <a class="navlink" href="about.html">About</a>
+        <a class="navlink" href="faq.html">FAQ</a>
+        <a class="navlink" href="volunteer.html">Become a tutor</a>
+        <a class="btn btn-primary nav-cta" href="get-a-tutor.html" aria-current="page">Get a tutor</a>
+      </nav>
+
+      <button class="theme-switch" id="themeSwitch" role="switch" aria-checked="false" aria-label="Dark mode" title="Toggle dark mode">
+        <svg class="ic ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ic ic-moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+        <span class="thumb"></span>
+      </button>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head" aria-labelledby="page-title">
+      <div class="wrap">
+        <span class="eyebrow">Get a tutor</span>
+        <h1 id="page-title">Sign up for free math tutoring</h1>
+        <p class="lead">For students in grades 7 to 11. A parent or guardian should fill out this form or go through it with the student. There is no cost. All fields are required unless marked optional.</p>
+      </div>
+    </section>
+
+    <section class="section-pad" aria-label="Signup form">
+      <div class="wrap">
+        <div class="form-layout">
+          <form class="form-card" id="signupForm" data-endpoint="https://formspree.io/f/mvkzywga" data-mailto-subject="Tutor signup" data-mailto-name-field="student_name" novalidate>
+            <fieldset>
+              <legend>About the student</legend>
+              <div class="field">
+                <label for="s-name">Student name</label>
+                <input id="s-name" name="student_name" type="text" autocomplete="off" required />
+              </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="s-grade">Grade</label>
+                <select id="s-grade" name="grade" required>
+                  <option value="">Select one</option>
+                  <option>7th grade</option>
+                  <option>8th grade</option>
+                  <option>9th grade</option>
+                  <option>10th grade</option>
+                  <option>11th grade</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="s-course">Current math course</label>
+                <select id="s-course" name="course" required>
+                  <option value="">Select one</option>
+                  <option>Pre-Algebra</option>
+                  <option>Algebra 1</option>
+                  <option>Geometry</option>
+                  <option>Algebra 2 / Trigonometry</option>
+                  <option>Precalculus</option>
+                  <option>AP Calculus AB</option>
+                  <option>AP Calculus BC</option>
+                  <option>AP Statistics</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+              <div class="field">
+                <label for="s-school">School</label>
+                <input id="s-school" name="school" type="text" autocomplete="off" required />
+              </div>
+              <div class="field">
+                <label for="s-topics">Topics they want help with</label>
+                <p class="hint" id="s-topics-hint">For example: solving equations, word problems, proofs, or an upcoming unit test. If you chose "Other" above, name the course here.</p>
+                <textarea id="s-topics" name="topics" required aria-describedby="s-topics-hint"></textarea>
+              </div>
+              <div class="field">
+                <label for="s-avail">Availability</label>
+                <p class="hint" id="s-avail-hint">Days and times that usually work, for example: Tuesdays and Thursdays after 4 pm, or Saturday mornings.</p>
+                <textarea id="s-avail" name="availability" required aria-describedby="s-avail-hint"></textarea>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Parent or guardian</legend>
+            <div class="form-row">
+              <div class="field">
+                <label for="p-name">Parent or guardian name</label>
+                <input id="p-name" name="parent_name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="p-email">Parent or guardian email</label>
+                <p class="hint" id="p-email-hint">We send scheduling and updates here, not to the student.</p>
+                <input id="p-email" name="parent_email" type="email" autocomplete="email" required aria-describedby="p-email-hint" />
+              </div>
+            </div>
+            </fieldset>
+
+            <div class="callout" style="margin-bottom:22px;">
+              <h2>What we ask of families</h2>
+              <ul>
+                <li>Attend scheduled sessions and arrive on time.</li>
+                <li>Give notice as early as you can if you need to cancel.</li>
+                <li>Tell us if the student's schedule or course changes.</li>
+              </ul>
+            </div>
+
+            <label class="check" for="consent">
+              <input id="consent" name="parent_consent" type="checkbox" data-label="Parent or guardian permission given" required />
+              <span>I am this student's parent or legal guardian, and I give permission for them to take part in Northwise tutoring sessions.</span>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Submit signup</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="form-note">Your answers are sent directly to Northwise. Questions? Email <a href="mailto:ekaagar.chawla@gmail.com">ekaagar.chawla@gmail.com</a>.</p>
+          </form>
+
+          <aside aria-label="About signing up">
+            <div class="callout">
+              <h2>What happens next</h2>
+              <p>We read your form and email the parent or guardian to set up a session time, based on a tutor's availability and the times you prefer.</p>
+              <p style="margin-top:10px;">Sessions are online and last about 1.5 hours.</p>
+            </div>
+            <div class="callout">
+              <h2>Safety</h2>
+              <p>Sessions are group-based or parent-visible, tutors do not message students privately, and every tutor follows a <a href="code-of-conduct.html" style="color:var(--ink);font-weight:700;text-decoration:underline;">code of conduct</a>. <a href="index.html#safety" style="color:var(--ink);font-weight:700;text-decoration:underline;">Read our safety rules</a>.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand"><svg class="mark" aria-hidden="true"><use href="#mark"/></svg> Northwise</a>
+          <p class="footer-tag">Northwise is a free, student-run community tutoring initiative. We offer free math help, from school-level courses up to advanced topics, for students in grades 7 to 11 who would otherwise go without.</p>
+        </div>
+        <div class="footer-col">
+          <h2 class="h6">Explore</h2>
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="about.html">About</a>
+          <a href="faq.html">FAQ</a>
+          <a href="index.html#safety">Safety</a>
+          <a href="code-of-conduct.html">Code of conduct</a>
+        </div>
+        <div class="footer-col">
+          <h2 class="h6">Get involved</h2>
+          <a href="get-a-tutor.html">Get a tutor</a>
+          <a href="volunteer.html">Become a tutor</a>
+          <!-- TODO: confirm the public contact email (consider a dedicated Northwise address) -->
+          <a href="mailto:ekaagar.chawla@gmail.com">ekaagar.chawla@gmail.com</a>
+          <span style="display:block;padding:6px 0;font-size:14.5px;">Cupertino, CA</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Northwise</span>
+        <span>Free, student-run community tutoring</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

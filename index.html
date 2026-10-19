@@ -3,804 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ============================================================= -->
-  <!--  SEO / META, edit copy freely                              -->
-  <!-- ============================================================= -->
-  <title>Northwise: Mentor-Led 1-on-1 STEM Tutoring in Cupertino</title>
-  <meta name="description" content="Northwise: Cupertino's mentor-led 1-on-1 tutoring in math, coding, and biology. Rigorous, personalized, mastery-based. Book a free diagnostic." />
+  <title>Northwise: Free Math Tutoring for Grades 7 to 11</title>
+  <meta name="description" content="Northwise is a free, student-run community tutoring initiative offering math help for grades 7 to 11, taught by trained high school and college volunteers." />
   <meta name="theme-color" content="#16264A" />
 
   <!-- Open Graph / social share -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Northwise: Mentor-Led 1-on-1 STEM Tutoring in Cupertino" />
-  <meta property="og:description" content="1-on-1 tutoring and mentorship in math, coding, and biology. Rigorous, personalized, mastery-based. Book a free diagnostic." />
+  <meta property="og:title" content="Northwise: Free Math Tutoring for Grades 7 to 11" />
+  <meta property="og:description" content="Northwise is a free, student-run community tutoring initiative offering math help for grades 7 to 11, taught by trained high school and college volunteers." />
   <meta property="og:site_name" content="Northwise" />
-  <!-- PLACEHOLDER: add your live URL + a 1200x630 social image when you deploy -->
+  <!-- TODO: replace with your live URL and a 1200x630 social image when you deploy -->
   <meta property="og:url" content="https://northwise.example" />
   <meta property="og:image" content="https://northwise.example/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- ============================================================= -->
-  <!--  FONTS, Fraunces (display serif) + Plus Jakarta Sans (body)-->
-  <!-- ============================================================= -->
+  <!-- Fonts: Fraunces (display serif) + Plus Jakarta Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <style>
-  /* ================================================================
-     NORTHWISE, DESIGN TOKENS
-     Palette: deep navy + gold accent + cream + warm coral.
-     Design language: glassmorphism (professional) meets
-     neo-brutalism (energy), frosted glass panels + hard offset
-     borders/shadows, on a warm cream canvas.
-     ================================================================ */
-  :root {
-    /* Brand colors */
-    --navy:        #16264A;   /* primary */
-    --navy-900:    #0E1A33;   /* darker navy for depth */
-    --navy-700:    #203560;   /* lighter navy */
-    --gold:        #C9A227;   /* accent */
-    --gold-soft:   #E3C766;   /* light gold */
-    --gold-deep:   #6E5410;   /* accessible gold-tone TEXT on cream */
-    --cream:       #FAF8F3;   /* background */
-    --cream-200:   #F1EBDD;   /* muted cream / hairline surfaces */
-    --fade-top:    #fff;      /* top stop of the section fade gradients */
-    --coral:       #E8845B;   /* warm secondary accent (energy) */
-    --coral-600:   #D96B3F;   /* coral hover */
-
-    /* Semantic tokens */
-    --bg:          var(--cream);
-    --ink:         var(--navy);           /* primary text on light */
-    --ink-soft:    #46536E;               /* muted text on light */
-    --on-navy:     #F3EFE6;               /* text on navy */
-    --on-navy-soft:#B9C2D6;               /* muted text on navy */
-    --line:        #E4DDCD;               /* hairline on cream */
-    --border-hard: var(--navy);           /* brutalist border color */
-
-    /* Glass */
-    --glass-light:      rgba(255,255,255,0.55);
-    --glass-light-brd:  rgba(255,255,255,0.75);
-    --glass-dark:       rgba(255,255,255,0.06);
-    --glass-dark-brd:   rgba(255,255,255,0.16);
-
-    /* Shadows */
-    --shadow-soft:  0 18px 40px -20px rgba(22,38,74,0.35);
-    --shadow-lift:  0 28px 60px -24px rgba(22,38,74,0.45);
-    --shadow-hard:  6px 6px 0 var(--navy);        /* brutalist */
-    --shadow-hard-gold: 6px 6px 0 var(--gold);
-
-    /* Radii, rounded but not bubbly */
-    --r-sm: 10px;
-    --r:    16px;
-    --r-lg: 22px;
-    --r-pill: 999px;
-
-    /* Type */
-    --font-display: 'Fraunces', 'Times New Roman', serif;
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-
-    /* Spacing scale (marketing-page: generous) */
-    --space-1: 8px;
-    --space-2: 16px;
-    --space-3: 24px;
-    --space-4: 40px;
-    --space-5: 64px;
-    --space-6: 96px;
-
-    --maxw: 1200px;
-    --nav-h: 72px;
-  }
-
-  /* ---------- Reset ---------- */
-  *, *::before, *::after { box-sizing: border-box; }
-  * { margin: 0; }
-  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); -webkit-text-size-adjust: 100%; }
-  body {
-    font-family: var(--font-sans);
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.6;
-    font-size: 17px;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-  }
-  img, svg { display: block; max-width: 100%; }
-  a { color: inherit; text-decoration: none; }
-  button { font-family: inherit; cursor: pointer; }
-  ::selection { background: var(--coral); color: #fff; }
-
-  /* ---------- Accessible focus ---------- */
-  :focus-visible {
-    outline: 3px solid var(--coral);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-
-  /* ---------- Skip link ---------- */
-  .skip-link {
-    position: absolute; left: 12px; top: -60px;
-    background: var(--navy); color: var(--on-navy);
-    padding: 10px 16px; border-radius: var(--r-sm); z-index: 200;
-    transition: top .2s ease;
-  }
-  .skip-link:focus { top: 12px; }
-
-  /* ---------- Layout helpers ---------- */
-  .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 24px; }
-  section { position: relative; }
-  .section-pad { padding-block: var(--space-6); }
-  section > .wrap { position: relative; z-index: 2; } /* keep content above glass atmosphere blobs */
-
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--gold-deep);
-  }
-  .eyebrow::before {
-    content: ""; width: 22px; height: 2px; background: var(--gold); display: inline-block;
-  }
-  .on-navy .eyebrow { color: var(--gold-soft); }
-  .on-navy .eyebrow::before { background: var(--gold); }
-
-  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.08; letter-spacing: -0.015em; color: var(--ink); }
-  h2.section-title { font-size: clamp(2rem, 4.5vw, 3.2rem); margin-top: 14px; }
-  .on-navy h2.section-title, .on-navy h1, .on-navy h3 { color: var(--on-navy); }
-  .lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--ink-soft); max-width: 62ch; }
-  .on-navy .lead { color: var(--on-navy-soft); }
-
-  .section-head { max-width: 760px; margin-bottom: var(--space-4); }
-
-  /* ---------- Buttons ---------- */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    font-weight: 700; font-size: 15px; letter-spacing: .01em;
-    padding: 14px 24px; border-radius: var(--r-pill);
-    border: 2px solid transparent; transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
-    white-space: nowrap;
-  }
-  /* Primary = coral (energy), dark navy text for AA contrast */
-  .btn-primary { background: var(--coral); color: var(--navy-900); border-color: var(--navy-900); box-shadow: 4px 4px 0 var(--navy-900); }
-  .btn-primary:hover { background: var(--coral-600); transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--navy-900); }
-  .btn-primary:active { transform: translate(0,0); box-shadow: 2px 2px 0 var(--navy-900); }
-
-  /* Secondary = outline */
-  .btn-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
-  .btn-outline:hover { background: var(--navy); color: var(--on-navy); transform: translateY(-2px); }
-
-  /* Ghost on navy */
-  .on-navy .btn-outline { color: var(--on-navy); border-color: rgba(255,255,255,.55); }
-  .on-navy .btn-outline:hover { background: var(--on-navy); color: var(--navy); }
-
-  .btn-gold { background: var(--gold); color: var(--navy-900); border-color: var(--navy-900); box-shadow: 4px 4px 0 var(--navy-900); }
-  .btn-gold:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--navy-900); background: var(--gold-soft); }
-
-  /* ---------- Specular button (React Bits-style light that tracks the cursor) ---------- */
-  .btn-specular { position: relative; overflow: hidden; isolation: isolate; }
-  .btn-specular > * { position: relative; z-index: 2; }
-  .btn-specular::after {
-    content: ""; position: absolute; z-index: 1; left: var(--spec-x, 50%); top: var(--spec-y, 50%);
-    width: 160px; height: 160px; transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(255,255,255,.75), rgba(255,255,255,.25) 35%, rgba(255,255,255,0) 65%);
-    opacity: 0; transition: opacity .3s ease; pointer-events: none; mix-blend-mode: screen;
-  }
-  .btn-specular:hover::after, .btn-specular:focus-visible::after { opacity: 1; }
-
-  /* ---------- Glass card ---------- */
-  .glass {
-    background: var(--glass-light);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
-    backdrop-filter: blur(16px) saturate(140%);
-    border: 1px solid var(--glass-light-brd);
-    box-shadow: var(--shadow-soft);
-    border-radius: var(--r-lg);
-  }
-  .on-navy .glass {
-    background: var(--glass-dark);
-    border-color: var(--glass-dark-brd);
-    box-shadow: 0 24px 50px -28px rgba(0,0,0,.6);
-  }
-
-  /* ---------- Brutalist card ---------- */
-  .brutal {
-    background: #fff;
-    border: 2.5px solid var(--border-hard);
-    border-radius: var(--r);
-    box-shadow: var(--shadow-hard);
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .brutal:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 var(--navy); }
-
-  /* ---------- Chips / tags ---------- */
-  .chip {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 8px 14px; border-radius: var(--r-pill);
-    font-size: 13.5px; font-weight: 600; color: var(--navy);
-    background: rgba(255,255,255,.6); border: 1.5px solid var(--navy);
-  }
-  .chip svg { width: 16px; height: 16px; }
-  .on-navy .chip { color: var(--on-navy); background: var(--glass-dark); border-color: var(--glass-dark-brd); }
-
-  .tag {
-    display: inline-flex; align-items: center; padding: 4px 10px;
-    font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
-    border-radius: var(--r-pill); border: 1.5px solid var(--navy);
-  }
-  .tag-standard { background: var(--cream-200); color: var(--navy); }
-  .tag-accel { background: var(--gold-soft); color: var(--navy-900); border-color: var(--navy-900); }
-  .tag-req { background: #fff; color: var(--coral-600); border-color: var(--coral-600); }
-
-  /* =============================================================
-     BACKGROUND ATMOSPHERE, soft gradient mesh + grid + grain
-     ============================================================= */
-  .bg-atmosphere {
-    position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none;
-  }
-  .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .5; }
-  .blob.gold  { width: 420px; height: 420px; background: radial-gradient(circle, rgba(201,162,39,.55), transparent 70%); }
-  .blob.coral { width: 380px; height: 380px; background: radial-gradient(circle, rgba(232,132,91,.45), transparent 70%); }
-  .blob.navy  { width: 460px; height: 460px; background: radial-gradient(circle, rgba(32,53,96,.35), transparent 70%); }
-
-  .grid-lines {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(to right, rgba(22,38,74,.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(22,38,74,.05) 1px, transparent 1px);
-    background-size: 64px 64px;
-    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
-  }
-  /* Subtle film grain via SVG noise */
-  .grain::after {
-    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .35;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-    mix-blend-mode: overlay;
-  }
-
-  /* =============================================================
-     NAVBAR
-     ============================================================= */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    height: var(--nav-h);
-    display: flex; align-items: center;
-    background: rgba(250,248,243,0.72);
-    -webkit-backdrop-filter: blur(14px) saturate(150%);
-    backdrop-filter: blur(14px) saturate(150%);
-    border-bottom: 1px solid transparent;
-    transition: border-color .3s ease, box-shadow .3s ease, background .3s ease;
-  }
-  .nav.scrolled { border-bottom-color: var(--line); box-shadow: 0 8px 30px -24px rgba(22,38,74,.5); }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-
-  .brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 600; font-size: 22px; color: var(--navy); letter-spacing: -0.01em; }
-  .brand .mark { width: 34px; height: 34px; flex: none; }
-
-  .nav-links { display: flex; align-items: center; gap: 4px; }
-  .nav-links a.navlink {
-    padding: 8px 14px; border-radius: var(--r-pill); font-weight: 600; font-size: 15px; color: var(--ink);
-    position: relative; transition: color .2s ease, background .2s ease;
-  }
-  .nav-links a.navlink:hover { background: rgba(22,38,74,.06); }
-  .nav-links a.navlink.active { color: var(--navy); }
-  .nav-links a.navlink.active::after {
-    content: ""; position: absolute; left: 14px; right: 14px; bottom: 2px; height: 2px; background: var(--gold); border-radius: 2px;
-  }
-  .nav-cta { margin-left: 8px; padding: 11px 20px; font-size: 14px; }
-
-  .nav-toggle {
-    display: none; width: 46px; height: 46px; border: 2px solid var(--navy); border-radius: 12px;
-    background: #fff; align-items: center; justify-content: center; box-shadow: 3px 3px 0 var(--navy);
-  }
-  .nav-toggle span { position: relative; width: 20px; height: 2px; background: var(--navy); transition: .25s; }
-  .nav-toggle span::before, .nav-toggle span::after { content:""; position: absolute; left: 0; width: 20px; height: 2px; background: var(--navy); transition: .25s; }
-  .nav-toggle span::before { top: -6px; }
-  .nav-toggle span::after { top: 6px; }
-  .nav-toggle[aria-expanded="true"] span { background: transparent; }
-  .nav-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
-  .nav-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
-
-  /* =============================================================
-     HERO
-     ============================================================= */
-  .hero { padding-top: var(--space-5); padding-bottom: var(--space-6); overflow: hidden; }
-  .hero .bg-atmosphere .blob.gold  { top: -120px; right: -80px; }
-  .hero .bg-atmosphere .blob.coral { bottom: -140px; left: -60px; }
-  .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr .85fr; gap: var(--space-5); align-items: center; }
-
-  .hero h1 {
-    font-size: clamp(2.6rem, 6vw, 4.6rem);
-    line-height: 1.02; margin-top: 22px; letter-spacing: -0.02em;
-  }
-  .hero h1 .accent { color: var(--gold); font-style: italic; }
-  .hero h1 .underline {
-    position: relative; white-space: nowrap;
-  }
-  .hero h1 .underline::after {
-    content:""; position: absolute; left: 0; right: 0; bottom: 6px; height: 12px; z-index: -1;
-    background: var(--coral); opacity: .35; border-radius: 8px;
-  }
-  .hero-sub { margin-top: 22px; font-size: clamp(1.05rem, 1.7vw, 1.28rem); color: var(--ink-soft); max-width: 54ch; }
-
-  .hero-ctas { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
-  .hero-chips { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; }
-
-  /* Hero graphic, compass / north star */
-  .hero-art { position: relative; display: flex; justify-content: center; align-items: center; }
-  .compass-stage { position: relative; width: min(100%, 420px); aspect-ratio: 1; }
-  .compass-stage .glass-ring {
-    position: absolute; inset: 6%; border-radius: 50%;
-    background: rgba(255,255,255,.35);
-    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,.7);
-    box-shadow: var(--shadow-lift);
-  }
-  .compass-svg { position: relative; z-index: 2; width: 100%; height: 100%; }
-  .spin-slow { transform-box: fill-box; transform-origin: center; animation: spin 60s linear infinite; }
-  .float-card {
-    position: absolute; z-index: 3; padding: 12px 16px; border-radius: 14px;
-    background: rgba(255,255,255,0.6);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
-    backdrop-filter: blur(16px) saturate(150%);
-    border: 1px solid var(--glass-light-brd); box-shadow: var(--shadow-lift); font-weight: 700; font-size: 13px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .float-card small { display: block; font-weight: 600; font-size: 11px; color: var(--ink-soft); }
-  .float-card .ic { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; color:#fff; flex: none; }
-  .fc-1 { top: 4%; left: -6%; animation: floaty 6s ease-in-out infinite; }
-  .fc-2 { bottom: 8%; right: -8%; animation: floaty 7s ease-in-out infinite reverse; }
-  .fc-3 { bottom: 30%; left: -10%; animation: floaty 8s ease-in-out infinite; }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-  /* =============================================================
-     "AS SEEN" / MARQUEE strip
-     ============================================================= */
-  .strip { border-block: 2px solid var(--navy); background: var(--navy); color: var(--on-navy); overflow: hidden; }
-  .marquee { display: flex; gap: 48px; padding: 16px 0; white-space: nowrap; animation: slide 28s linear infinite; }
-  .marquee span { font-family: var(--font-display); font-size: 20px; font-style: italic; opacity: .9; display: inline-flex; align-items: center; gap: 48px; }
-  .marquee span::after { content: "✦"; color: var(--gold); font-style: normal; }
-  @keyframes slide { to { transform: translateX(-50%); } }
-
-  /* =============================================================
-     WHY NORTHWISE
-     ============================================================= */
-  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .why-card { padding: 30px; position: relative; overflow: hidden; }
-  .why-card .num {
-    font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--navy-900);
-    width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
-    background: var(--gold-soft); border: 2px solid var(--navy-900); box-shadow: 3px 3px 0 var(--navy-900);
-  }
-  .why-card h3 { font-size: 1.4rem; margin: 20px 0 10px; }
-  .why-card p { color: var(--ink-soft); }
-  .why-card:nth-child(2) .num { background: var(--coral); }
-  .why-card:nth-child(3) .num { background: #fff; }
-  .why-card:nth-child(4) .num { background: var(--navy); color: var(--gold-soft); }
-
-  /* =============================================================
-     COURSES
-     ============================================================= */
-  .track { margin-bottom: 48px; }
-  .track-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; }
-  .track-icon { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; border: 2.5px solid var(--navy); box-shadow: 4px 4px 0 var(--navy); flex: none; }
-  .track-icon.math { background: var(--gold-soft); }
-  .track-icon.code { background: var(--coral); }
-  .track-icon.bio  { background: #C7E6D4; }
-  .track-title { font-size: 1.7rem; }
-  .track-note { font-size: 14px; color: var(--ink-soft); font-weight: 500; }
-
-  .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
-  .course-card {
-    display: flex; flex-direction: column; gap: 12px; padding: 22px;
-    background: rgba(255,255,255,0.5);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
-    backdrop-filter: blur(16px) saturate(150%);
-    border: 1px solid var(--glass-light-brd); border-radius: var(--r); box-shadow: var(--shadow-soft);
-    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; min-height: 100%;
-  }
-  .course-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lift); border-color: var(--gold); }
-  .course-card:focus-within { transform: translateY(-5px); box-shadow: var(--shadow-lift); border-color: var(--gold); }
-  .course-card h4 { font-size: 1.2rem; }
-  .course-card p { font-size: 14.5px; color: var(--ink-soft); flex: 1; }
-  .course-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .course-card .go {
-    display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14px; color: var(--navy);
-    margin-top: 4px;
-  }
-  .course-card .go svg { transition: transform .2s ease; }
-  .course-card:hover .go svg { transform: translateX(4px); }
-
-  /* =============================================================
-     METHOD, stepper
-     ============================================================= */
-  #method { background: var(--navy); color: var(--on-navy); overflow: hidden; }
-  #method .bg-atmosphere .blob.gold { top: -100px; left: 10%; opacity: .28; }
-  #method .bg-atmosphere .blob.coral { bottom: -120px; right: 5%; opacity: .28; }
-  #method .wrap { position: relative; z-index: 2; }
-
-  .stepper { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 12px; counter-reset: step; }
-  .step { padding: 26px; position: relative; }
-  .step .beat {
-    font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--gold-soft);
-    display: flex; align-items: center; gap: 12px;
-  }
-  .step .beat .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
-  .step .ic-wrap { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--glass-dark); border: 1px solid var(--glass-dark-brd); margin: 16px 0; color: var(--gold-soft); }
-  .step h4 { font-size: 1.2rem; color: var(--on-navy); margin-bottom: 8px; }
-  .step p { font-size: 14.5px; color: var(--on-navy-soft); }
-
-  .method-notes { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 40px; }
-  .note-card { padding: 24px; border-radius: var(--r); }
-  .note-card h5 { font-family: var(--font-display); font-size: 1.15rem; color: var(--on-navy); margin-bottom: 8px; }
-  .note-card p { font-size: 14px; color: var(--on-navy-soft); }
-  .mastery-bar { margin-top: 14px; height: 10px; border-radius: 999px; background: rgba(255,255,255,.12); overflow: hidden; }
-  .mastery-bar > i { display: block; height: 100%; width: 92%; border-radius: 999px; background: linear-gradient(90deg, var(--coral), var(--gold)); }
-
-  /* =============================================================
-     HOW IT WORKS
-     ============================================================= */
-  .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .how-step { padding: 28px 24px; position: relative; transition: transform .2s ease, box-shadow .2s ease; }
-  .how-step:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
-  .how-step .n {
-    font-family: var(--font-display); font-size: 42px; font-weight: 600; color: var(--gold);
-    line-height: 1;
-  }
-  .how-step h4 { font-size: 1.15rem; margin: 12px 0 8px; }
-  .how-step p { font-size: 14.5px; color: var(--ink-soft); }
-  .how-step .arrow { position: absolute; top: 34px; right: -22px; color: var(--coral); z-index: 3; }
-
-  /* =============================================================
-     ABOUT / FOUNDER
-     ============================================================= */
-  .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: var(--space-5); align-items: center; }
-  .founder-photo {
-    position: relative; aspect-ratio: 4/5; border-radius: var(--r-lg); overflow: hidden;
-    border: 2.5px solid var(--navy); box-shadow: 10px 10px 0 var(--gold);
-    background: linear-gradient(160deg, var(--navy-700), var(--navy-900));
-    display: grid; place-items: center;
-  }
-  .founder-photo .initials { font-family: var(--font-display); font-size: 5rem; color: var(--gold-soft); }
-  .founder-photo .ph-note {
-    position: absolute; bottom: 14px; left: 14px; right: 14px; text-align: center;
-    font-size: 12px; color: var(--on-navy-soft); background: rgba(0,0,0,.3); padding: 6px; border-radius: 8px;
-  }
-  .founder-badge {
-    position: absolute; top: -16px; right: -16px; background: var(--coral); color: var(--navy-900);
-    border: 2px solid var(--navy-900); border-radius: var(--r-pill); padding: 8px 16px; font-weight: 700; font-size: 13px;
-    box-shadow: 4px 4px 0 var(--navy-900); transform: rotate(4deg);
-  }
-  .about-body h2 { margin-bottom: 18px; }
-  .about-body p { color: var(--ink-soft); margin-bottom: 16px; max-width: 60ch; }
-  .about-body .sig { font-family: var(--font-display); font-size: 1.6rem; color: var(--navy); font-style: italic; margin-top: 8px; }
-  .cred-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-
-  /* =============================================================
-     PRICING
-     ============================================================= */
-  .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-  .price-card { padding: 30px; display: flex; flex-direction: column;
-    background: rgba(255,255,255,0.55);
-    -webkit-backdrop-filter: blur(18px) saturate(150%);
-    backdrop-filter: blur(18px) saturate(150%);
-    border: 1px solid var(--glass-light-brd); border-radius: var(--r-lg); box-shadow: var(--shadow-soft); }
-  .price-card.featured {
-    background: var(--navy); color: var(--on-navy); box-shadow: 8px 8px 0 var(--gold);
-    transform: translateY(-8px); position: relative;
-  }
-  .price-card.featured h3, .price-card.featured .price { color: var(--on-navy); }
-  .price-card .plan { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-deep); }
-  .price-card.featured .plan { color: var(--gold-soft); }
-  .price-card h3 { font-size: 1.5rem; margin: 6px 0 4px; }
-  .price-card .price { font-family: var(--font-display); font-size: 2.6rem; font-weight: 600; color: var(--navy); line-height: 1; margin: 14px 0 4px; }
-  .price-card .price .per { font-family: var(--font-sans); font-size: 15px; font-weight: 600; color: var(--ink-soft); }
-  .price-card.featured .price .per { color: var(--on-navy-soft); }
-  .price-card .plan-desc { font-size: 14px; color: var(--ink-soft); min-height: 40px; }
-  .price-card.featured .plan-desc { color: var(--on-navy-soft); }
-  .price-feats { list-style: none; padding: 0; margin: 20px 0 26px; display: grid; gap: 10px; }
-  .price-feats li { display: flex; gap: 10px; font-size: 14.5px; align-items: flex-start; }
-  .price-feats li svg { flex: none; margin-top: 3px; color: var(--coral); }
-  .price-card.featured .price-feats li svg { color: var(--gold-soft); }
-  .price-card .btn { margin-top: auto; width: 100%; }
-  .featured-flag {
-    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-    background: var(--coral); color: var(--navy-900); border: 2px solid var(--gold);
-    padding: 5px 16px; border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
-  }
-  .price-note { text-align: center; margin-top: 30px; font-weight: 600; color: var(--navy); }
-  .price-free {
-    margin-top: 22px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between;
-    padding: 22px 28px; border-radius: var(--r-lg);
-  }
-  .price-free h4 { font-size: 1.3rem; }
-  .price-free p { color: var(--ink-soft); font-size: 14.5px; }
-
-  /* Tilted-card interaction (React Bits-style 3D tilt + specular glare) */
-  .price-grid { perspective: 1200px; }
-  .price-card { transform-style: preserve-3d; will-change: transform;
-    transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease; }
-  .price-card .tilt-glare {
-    position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 4;
-    background: radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(255,255,255,.35), rgba(255,255,255,0) 45%);
-    opacity: 0; transition: opacity .25s ease;
-  }
-  .price-card.tilting { transition: transform .08s linear; transition-delay: 0s !important; box-shadow: 0 30px 60px -20px rgba(22,38,74,.45); }
-  .price-card.tilting .tilt-glare { opacity: 1; }
-  .price-card.featured.tilting { box-shadow: 12px 12px 0 var(--gold), 0 30px 60px -20px rgba(22,38,74,.55); }
-
-  /* =============================================================
-     FAQ
-     ============================================================= */
-  .faq-grid { display: grid; grid-template-columns: 1fr; gap: 12px; max-width: 820px; margin-inline: auto; }
-  .faq-item { border: 2px solid var(--navy); border-radius: var(--r); background: #fff; overflow: hidden; box-shadow: 4px 4px 0 rgba(22,38,74,.12); transition: box-shadow .2s ease; }
-  .faq-item[open] { box-shadow: 5px 5px 0 var(--gold); }
-  .faq-q {
-    width: 100%; text-align: left; background: none; border: 0; padding: 20px 22px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    font-family: var(--font-display); font-size: 1.12rem; font-weight: 600; color: var(--navy);
-  }
-  .faq-q .plus { flex: none; width: 30px; height: 30px; border-radius: 8px; border: 2px solid var(--navy); display: grid; place-items: center; transition: .25s; background: var(--cream); }
-  .faq-item[open] .faq-q .plus { transform: rotate(45deg); background: var(--gold); }
-  .faq-a { padding: 0 22px; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease; }
-  .faq-item[open] .faq-a { padding: 0 22px 22px; max-height: 400px; }
-  .faq-a p { color: var(--ink-soft); font-size: 15.5px; }
-  .faq-a .hl { color: var(--coral-600); font-weight: 700; } /* placeholder marker */
-
-  /* =============================================================
-     FINAL CTA + CONTACT
-     ============================================================= */
-  #contact { background: var(--navy-900); color: var(--on-navy); overflow: hidden; }
-  #contact .bg-atmosphere .blob.gold { top: -80px; right: -40px; opacity: .35; }
-  #contact .bg-atmosphere .blob.coral { bottom: -100px; left: 10%; opacity: .3; }
-  #contact .wrap { position: relative; z-index: 2; }
-  .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); align-items: center; }
-  .cta-copy h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--on-navy); }
-  .cta-copy h2 .g { color: var(--gold-soft); font-style: italic; }
-  .cta-copy p { color: var(--on-navy-soft); margin-top: 16px; font-size: 1.1rem; max-width: 46ch; }
-  .cta-copy .quick { margin-top: 26px; display: grid; gap: 12px; }
-  .cta-copy .quick a { display: inline-flex; align-items: center; gap: 10px; color: var(--on-navy); font-weight: 600; }
-  .cta-copy .quick a svg { color: var(--gold-soft); }
-
-  .contact-card { padding: 32px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
-  .field label { font-size: 13px; font-weight: 700; letter-spacing: .03em; color: var(--on-navy); }
-  .field input, .field select, .field textarea {
-    font-family: inherit; font-size: 15px; color: #fff; padding: 13px 15px; border-radius: 12px;
-    background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.2);
-    transition: border-color .2s ease, background .2s ease;
-  }
-  .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,.45); }
-  .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23E3C766' stroke-width='2'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
-  .field select option { color: #16264A; }
-  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold-soft); background: rgba(255,255,255,.1); outline: none; }
-  .field textarea { resize: vertical; min-height: 92px; }
-  .form-note { font-size: 12.5px; color: var(--on-navy-soft); margin-top: 4px; }
-
-  /* =============================================================
-     FOOTER
-     ============================================================= */
-  footer { background: var(--navy-900); color: var(--on-navy-soft); border-top: 1px solid rgba(255,255,255,.08); }
-  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-block: 56px 32px; }
-  footer .brand { color: var(--on-navy); }
-  footer .brand .mark { width: 30px; height: 30px; }
-  .footer-tag { margin-top: 16px; max-width: 34ch; font-size: 14.5px; }
-  .footer-col h6 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 16px; font-weight: 700; }
-  .footer-col a { display: block; padding: 6px 0; font-size: 14.5px; color: var(--on-navy-soft); transition: color .2s ease; }
-  .footer-col a:hover { color: var(--on-navy); }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-block: 22px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 13px; }
-
-  /* =============================================================
-     SCROLL REVEAL
-     ============================================================= */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
-  .reveal.in { opacity: 1; transform: none; }
-  .reveal.d1 { transition-delay: .08s; }
-  .reveal.d2 { transition-delay: .16s; }
-  .reveal.d3 { transition-delay: .24s; }
-
-  /* =============================================================
-     RESPONSIVE
-     ============================================================= */
-  @media (max-width: 1024px) {
-    .hero-grid { grid-template-columns: 1fr; gap: var(--space-4); }
-    .hero-art { order: -1; }
-    .compass-stage { width: min(80%, 340px); }
-    .about-grid { grid-template-columns: 1fr; gap: var(--space-4); }
-    .founder-photo { max-width: 380px; }
-    .cta-grid { grid-template-columns: 1fr; gap: var(--space-4); }
-    .stepper { grid-template-columns: repeat(2, 1fr); }
-    .method-notes { grid-template-columns: 1fr; }
-    .how-grid { grid-template-columns: repeat(2, 1fr); }
-    .how-step .arrow { display: none; }
-  }
-  @media (max-width: 820px) {
-    :root { --nav-h: 64px; }
-    .nav-links {
-      position: fixed; inset: var(--nav-h) 0 auto 0; flex-direction: column; align-items: stretch; gap: 6px;
-      background: rgba(250,248,243,0.97); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-      padding: 18px 24px 28px; border-bottom: 2px solid var(--navy);
-      transform: translateY(-120%); transition: transform .3s ease; box-shadow: var(--shadow-lift);
-    }
-    .nav-links.open { transform: translateY(0); }
-    .nav-links a.navlink { padding: 14px 12px; font-size: 17px; }
-    .nav-links a.navlink.active::after { display: none; }
-    .nav-cta { margin: 8px 0 0; padding: 15px; }
-    .nav-toggle { display: inline-flex; }
-    .why-grid { grid-template-columns: 1fr; }
-    .price-grid { grid-template-columns: 1fr; }
-    .price-card.featured { transform: none; }
-    .form-row { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    .section-pad { padding-block: var(--space-5); }
-    .side-rays { display: none; } /* avoid overlapping the stacked hero headline */
-  }
-  @media (max-width: 480px) {
-    body { font-size: 16px; }
-    .wrap { padding-inline: 18px; }
-    .stepper { grid-template-columns: 1fr; }
-    .how-grid { grid-template-columns: 1fr; }
-    .hero-ctas .btn { flex: 1; }
-    .float-card { display: none; } /* keep hero clean on very small screens */
-  }
-
-  /* ---------- Reduced motion ---------- */
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    .reveal { opacity: 1; transform: none; }
-  }
-
-  /* =============================================================
-     DARK MODE  (only colors change; all components stay identical)
-     ============================================================= */
-  [data-theme="dark"] {
-    --navy:        #263c6b;   /* stays a blue for panels / borders / icon fills */
-    --navy-900:    #172444;   /* dark section backgrounds */
-    --navy-700:    #354d82;
-    --gold:        #E3C766;
-    --gold-soft:   #F1DD93;
-    --gold-deep:   #E9CF77;   /* eyebrow text → light gold on dark */
-    --cream:       #14203c;   /* former light surfaces → dark panels */
-    --cream-200:   #1D2C50;
-    --fade-top:    #0E1730;   /* subtle dark top-stop for section fades */
-    --coral:       #F0916A;
-    --coral-600:   #E8845B;
-
-    --bg:          #0A1122;   /* page background (darkest) */
-    --ink:         #EAF1FF;   /* primary text */
-    --ink-soft:    #A7B4D0;   /* muted text */
-    --on-navy:     #F3EFE6;
-    --on-navy-soft:#B9C2D6;
-    --line:        rgba(255,255,255,0.10);
-    --border-hard: #3A5088;
-
-    --glass-light:     rgba(255,255,255,0.05);
-    --glass-light-brd: rgba(255,255,255,0.14);
-    --glass-dark:      rgba(255,255,255,0.05);
-    --glass-dark-brd:  rgba(255,255,255,0.14);
-
-    --shadow-soft: 0 18px 40px -20px rgba(0,0,0,0.65);
-    --shadow-lift: 0 28px 60px -24px rgba(0,0,0,0.75);
-    --shadow-hard: 6px 6px 0 #060B18;
-    --shadow-hard-gold: 6px 6px 0 var(--gold);
-  }
-  /* Targeted fixes where colors were hardcoded (not tokenized) */
-  [data-theme="dark"] .nav { background: rgba(12,19,38,0.72); }
-  [data-theme="dark"] .nav.scrolled { box-shadow: 0 8px 30px -24px rgba(0,0,0,.8); }
-  [data-theme="dark"] .nav-links a.navlink { color: var(--ink); }
-  [data-theme="dark"] .nav-links a.navlink:hover { background: rgba(255,255,255,.08); }
-  [data-theme="dark"] .brutal,
-  [data-theme="dark"] .faq-item,
-  [data-theme="dark"] .tag-req { background: var(--cream); }
-  [data-theme="dark"] .faq-item { box-shadow: 4px 4px 0 rgba(0,0,0,.45); }
-  [data-theme="dark"] .faq-item[open] { box-shadow: 5px 5px 0 var(--gold); }
-  [data-theme="dark"] .faq-q { color: var(--ink); }
-  [data-theme="dark"] .faq-q .plus { background: var(--cream-200); border-color: var(--border-hard); }
-  [data-theme="dark"] .faq-q .plus svg { stroke: var(--ink); }
-  [data-theme="dark"] .faq-item[open] .faq-q .plus { background: var(--gold); }
-  [data-theme="dark"] .faq-item[open] .faq-q .plus svg { stroke: var(--navy-900); }
-  [data-theme="dark"] .chip { background: var(--glass-dark); color: var(--ink); border-color: var(--glass-dark-brd); }
-  [data-theme="dark"] .tag-standard { color: var(--ink); }
-  [data-theme="dark"] .btn-outline { color: var(--ink); border-color: var(--border-hard); }
-  [data-theme="dark"] .btn-outline:hover { background: var(--navy-700); color: #fff; border-color: var(--navy-700); }
-  [data-theme="dark"] .price-card { background: var(--glass-light); }
-  [data-theme="dark"] .price-card .price,
-  [data-theme="dark"] .price-note { color: var(--ink); }
-  [data-theme="dark"] .about-body .sig { color: var(--gold-soft); }
-  [data-theme="dark"] .course-card { background: var(--glass-light); }
-  [data-theme="dark"] .float-card { background: rgba(255,255,255,0.06); }
-  [data-theme="dark"] .compass-stage .glass-ring { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.18); }
-  [data-theme="dark"] .nav-toggle { background: var(--cream); border-color: var(--border-hard); box-shadow: 3px 3px 0 var(--navy-900); }
-  [data-theme="dark"] .nav-toggle span, [data-theme="dark"] .nav-toggle span::before, [data-theme="dark"] .nav-toggle span::after { background: var(--ink); }
-  @media (max-width: 820px) {
-    [data-theme="dark"] .nav-links { background: rgba(12,19,38,0.97); border-bottom-color: var(--border-hard); }
-  }
-
-  /* Butter-smooth cross-fade while toggling theme (temporary, so hover anims stay intact) */
-  html.theme-animating,
-  html.theme-animating *,
-  html.theme-animating *::before,
-  html.theme-animating *::after {
-    transition: background-color .55s ease, color .55s ease, border-color .55s ease,
-      box-shadow .55s ease, fill .55s ease, stroke .55s ease, opacity .55s ease !important;
-  }
-  /* keep the elastic thumb springing during a theme toggle (don't let the rule above flatten it) */
-  html.theme-animating .theme-switch .thumb {
-    transition: transform .6s cubic-bezier(.34,1.75,.5,1), width .22s cubic-bezier(.34,1.75,.5,1),
-      background .4s ease !important;
-  }
-
-  /* =============================================================
-     FLUIDGLASS  — hover lens over the 4 nav titles (rectangular)
-     ============================================================= */
-  .nav-links { position: relative; }
-  .nav-links a.navlink { z-index: 1; }
-  .nav-lens {
-    position: absolute; top: 50%; left: 0; width: 0; height: 40px; z-index: 3;
-    transform: translateY(-50%) scale(.55); transform-origin: center;
-    border-radius: 13px; pointer-events: none; opacity: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.05));
-    border: 1px solid rgba(255,255,255,.6);
-    -webkit-backdrop-filter: blur(1.5px) brightness(1.06) saturate(1.4);
-    backdrop-filter: blur(1.5px) brightness(1.06) saturate(1.4);
-    box-shadow: inset 0 1px 1px rgba(255,255,255,.85), inset 0 -8px 14px -10px rgba(255,255,255,.6),
-      0 10px 24px -12px rgba(22,38,74,.45);
-    transition: left .5s cubic-bezier(.34,1.45,.5,1), width .5s cubic-bezier(.34,1.45,.5,1),
-      transform .5s cubic-bezier(.34,1.6,.5,1), opacity .32s ease;
-  }
-  .nav-lens.show { opacity: 1; transform: translateY(-50%) scale(1); }
-  @supports (backdrop-filter: url(#fluid-lens)) {
-    .nav-lens {
-      -webkit-backdrop-filter: url(#fluid-lens) brightness(1.05) saturate(1.35);
-      backdrop-filter: url(#fluid-lens) brightness(1.05) saturate(1.35);
-      background: rgba(255,255,255,.06);
-    }
-  }
-  [data-theme="dark"] .nav-lens {
-    border-color: rgba(255,255,255,.3);
-    background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
-  }
-
-  /* =============================================================
-     ELASTIC SLIDER — light/dark toggle
-     ============================================================= */
-  .theme-switch {
-    --w: 62px; --h: 30px; --pad: 3px;
-    --knob: calc(var(--h) - var(--pad) * 2);
-    position: relative; width: var(--w); height: var(--h); flex: none; margin-left: 6px;
-    display: inline-flex; align-items: center; padding: var(--pad);
-    border-radius: 999px; border: 1.5px solid var(--border-hard); background: var(--cream-200);
-    box-shadow: inset 0 2px 6px rgba(0,0,0,.18); overflow: hidden;
-  }
-  .theme-switch .ic { position: absolute; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; z-index: 1; opacity: .8; }
-  .theme-switch .ic-sun  { left: 8px;  color: var(--gold); }
-  .theme-switch .ic-moon { right: 8px; color: var(--gold-soft); }
-  .theme-switch .thumb {
-    position: relative; z-index: 2; width: var(--knob); height: var(--knob); border-radius: 50%;
-    background: var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,.35), inset 0 1px 1px rgba(255,255,255,.6);
-    transform: translateX(0);
-    transition: transform .6s cubic-bezier(.34,1.75,.5,1), width .22s cubic-bezier(.34,1.75,.5,1), background .4s ease;
-  }
-  /* elastic squash on press */
-  .theme-switch:active .thumb { width: calc(var(--knob) * 1.35); }
-  [data-theme="dark"] .theme-switch .thumb { transform: translateX(calc(var(--w) - var(--h))); background: var(--gold-soft); }
-  [data-theme="dark"] .theme-switch:active .thumb { transform: translateX(calc(var(--w) - var(--h) - var(--knob) * .35)); }
-
-  /* =============================================================
-     SIDE RAYS — exact React Bits shader (white light), dark mode only
-     ============================================================= */
-  .side-rays {
-    position: absolute; top: 0; right: 0; width: 55%; height: 88%;
-    z-index: 3; pointer-events: none; overflow: hidden; mix-blend-mode: screen;
-    opacity: 0; transition: opacity 1s ease;
-  }
-  .side-rays canvas { width: 100%; height: 100%; display: block; }
-  [data-theme="dark"] .side-rays { opacity: 1; }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Apply saved theme before paint to avoid a flash -->
@@ -816,26 +37,18 @@
   </script>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============================================================= -->
-  <!--  REUSABLE SVG SYMBOLS (compass mark, icons)                   -->
-  <!-- ============================================================= -->
+  <!-- Reusable SVG symbols (compass brand mark) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <!-- Compass / north-star brand mark -->
     <symbol id="mark" viewBox="0 0 48 48">
       <circle cx="24" cy="24" r="22" fill="#16264A"/>
       <circle cx="24" cy="24" r="22" fill="none" stroke="#C9A227" stroke-width="1.5"/>
-      <!-- north star -->
       <path d="M24 6 L27 21 L42 24 L27 27 L24 42 L21 27 L6 24 L21 21 Z" fill="#C9A227"/>
       <path d="M24 12 L26 22 L36 24 L26 26 L24 36 L22 26 L12 24 L22 22 Z" fill="#FAF8F3" opacity="0.9"/>
       <circle cx="24" cy="24" r="2.4" fill="#E8845B"/>
     </symbol>
   </svg>
 
-  <!-- ============================================================= -->
-  <!--  NAVBAR                                                       -->
-  <!-- ============================================================= -->
-
-  <!-- FluidGlass refraction filter for the nav hover lens (resolution-independent) -->
+  <!-- FluidGlass refraction filter for the nav hover lens -->
   <svg id="fluidDefs" width="0" height="0" style="position:absolute" aria-hidden="true">
     <filter id="fluid-lens" x="-20%" y="-20%" width="140%" height="140%">
       <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="12" result="n"/>
@@ -846,22 +59,22 @@
 
   <header class="nav" id="nav">
     <div class="wrap">
-      <a href="#top" class="brand" aria-label="Northwise home">
+      <a href="index.html" class="brand" aria-label="Northwise home">
         <svg class="mark" aria-hidden="true"><use href="#mark"/></svg>
         Northwise
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a class="navlink" href="#courses">Courses</a>
-        <a class="navlink" href="#method">Method</a>
-        <a class="navlink" href="#about">About</a>
-        <a class="navlink" href="#pricing">Pricing</a>
-        <a class="btn btn-primary btn-specular nav-cta" href="#contact"><span>Book a Diagnostic</span></a>
+        <a class="navlink" href="courses.html">Courses</a>
+        <a class="navlink" href="about.html">About</a>
+        <a class="navlink" href="faq.html">FAQ</a>
+        <a class="navlink" href="volunteer.html">Become a tutor</a>
+        <a class="btn btn-primary nav-cta" href="get-a-tutor.html">Get a tutor</a>
       </nav>
 
-      <button class="theme-switch" id="themeSwitch" role="switch" aria-checked="false" aria-label="Toggle dark mode" title="Toggle dark mode">
-        <svg class="ic ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="ic ic-moon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+      <button class="theme-switch" id="themeSwitch" role="switch" aria-checked="false" aria-label="Dark mode" title="Toggle dark mode">
+        <svg class="ic ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ic ic-moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
         <span class="thumb"></span>
       </button>
 
@@ -872,51 +85,39 @@
   </header>
 
   <main id="main">
-    <span id="top"></span>
-
     <!-- ========================================================= -->
-    <!--  1 · HERO                                                 -->
+    <!--  HERO                                                     -->
     <!-- ========================================================= -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="bg-atmosphere grain">
-        <div class="grid-lines"></div>
-        <div class="blob gold"></div>
-        <div class="blob coral"></div>
-      </div>
-      <!-- SideRays light: top-right corner of the landing page, just below the navbar (dark mode only) -->
-      <div class="side-rays"></div>
       <div class="wrap">
         <div class="hero-grid">
           <div class="hero-copy">
-            <!-- HERO HEADLINE, edit copy here -->
             <h1 id="hero-title" class="reveal">
-              The mentor-led path from <span class="underline">fundamentals</span> to <span class="accent">advanced STEM.</span>
+              Free math tutoring for <span class="underline">grades 7 to 11.</span>
             </h1>
 
-            <!-- SUBHEAD = one-liner -->
             <p class="hero-sub reveal d2">
-              Northwise is 1-on-1 tutoring and mentorship in math, coding, and biology, rigorous, personalized, and built on mastery through deliberate practice.
+              Northwise is a free, student-run community tutoring initiative. Students learn from trained high school and college volunteers who have recently taken the same courses and teach from a structured curriculum. Any family in the community can sign up.
             </p>
 
             <div class="hero-ctas reveal d2">
-              <a class="btn btn-primary btn-specular" href="#contact"><span>Book a Free Diagnostic</span></a>
-              <a class="btn btn-outline" href="#courses">See Courses</a>
+              <a class="btn btn-primary" href="get-a-tutor.html">Get a tutor</a>
+              <a class="btn btn-outline" href="volunteer.html">Become a tutor</a>
             </div>
 
-            <!-- Trust chips -->
-            <div class="hero-chips reveal d3">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> 1-on-1 only</span>
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.6-7-11a7 7 0 0114 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Cupertino-based</span>
-              <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l4 4 6-9"/><path d="M14 15l3 3 4-6"/></svg> Mastery-based method</span>
-              <span class="chip">Math · Coding · Biology</span>
-            </div>
+            <ul class="hero-chips reveal d3" aria-label="At a glance" style="list-style:none;padding:0;">
+              <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Always free</li>
+              <li class="chip">Grades 7 to 11</li>
+              <li class="chip">Pre-Algebra to AP Calculus</li>
+              <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0114 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Cupertino, CA</li>
+            </ul>
           </div>
 
-          <!-- Compass / north-star hero graphic -->
+          <!-- Compass / north-star brand graphic (decorative) -->
           <div class="hero-art reveal d2" aria-hidden="true">
             <div class="compass-stage">
               <div class="glass-ring"></div>
-              <svg class="compass-svg" viewBox="0 0 400 400" role="img" aria-label="North star compass">
+              <svg class="compass-svg" viewBox="0 0 400 400">
                 <defs>
                   <radialGradient id="face" cx="50%" cy="42%" r="70%">
                     <stop offset="0%" stop-color="#243d6e"/>
@@ -925,8 +126,7 @@
                 </defs>
                 <circle cx="200" cy="200" r="150" fill="url(#face)" stroke="#C9A227" stroke-width="2"/>
                 <circle cx="200" cy="200" r="132" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.4"/>
-                <!-- tick marks -->
-                <g class="spin-slow" stroke="#E3C766" stroke-width="2" opacity="0.55">
+                <g stroke="#E3C766" stroke-width="2" opacity="0.55">
                   <line x1="200" y1="56" x2="200" y2="74"/>
                   <line x1="200" y1="326" x2="200" y2="344"/>
                   <line x1="56" y1="200" x2="74" y2="200"/>
@@ -936,900 +136,154 @@
                   <line x1="298" y1="102" x2="286" y2="114"/>
                   <line x1="114" y1="286" x2="102" y2="298"/>
                 </g>
-                <!-- compass needle / north star -->
                 <path d="M200 70 L214 186 L330 200 L214 214 L200 330 L186 214 L70 200 L186 186 Z" fill="#C9A227"/>
                 <path d="M200 110 L210 190 L290 200 L210 210 L200 290 L190 210 L110 200 L190 190 Z" fill="#FAF8F3"/>
                 <path d="M200 70 L214 186 L200 200 Z" fill="#E8845B"/>
                 <circle cx="200" cy="200" r="9" fill="#0E1A33" stroke="#C9A227" stroke-width="2"/>
                 <text x="200" y="52" text-anchor="middle" fill="#E3C766" font-family="Fraunces, serif" font-size="20" font-weight="600">N</text>
               </svg>
-
-              <!-- floating brutalist cards -->
-              <div class="float-card fc-1">
-                <div class="ic" style="background:var(--gold)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2.2"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 4-6"/></svg></div>
-                <div>Mastery<br><small>fast · accurate · independent</small></div>
-              </div>
-              <div class="float-card fc-2">
-                <div class="ic" style="background:var(--coral)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg></div>
-                <div>Personalized<br><small>starts with a diagnostic</small></div>
-              </div>
-              <div class="float-card fc-3">
-                <div class="ic" style="background:var(--navy)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E3C766" stroke-width="2.2"><path d="M12 20a8 8 0 100-16 8 8 0 000 16zM12 8v4l2 2"/></svg></div>
-                <div>Weekly rhythm<br><small>1-on-1 sessions</small></div>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Marquee strip -->
-    <div class="strip" aria-hidden="true">
-      <div class="marquee">
-        <span>Algebra&nbsp;·&nbsp;Geometry&nbsp;·&nbsp;Precalculus</span>
-        <span>Calculus AB / BC</span>
-        <span>Python&nbsp;&amp;&nbsp;Machine&nbsp;Learning</span>
-        <span>Freshman Biology</span>
-        <span>Mastery through deliberate practice</span>
-        <span>Algebra&nbsp;·&nbsp;Geometry&nbsp;·&nbsp;Precalculus</span>
-        <span>Calculus AB / BC</span>
-        <span>Python&nbsp;&amp;&nbsp;Machine&nbsp;Learning</span>
-        <span>Freshman Biology</span>
-        <span>Mastery through deliberate practice</span>
-      </div>
-    </div>
-
     <!-- ========================================================= -->
-    <!--  2 · WHY NORTHWISE                                        -->
+    <!--  HOW IT WORKS                                             -->
     <!-- ========================================================= -->
-    <section class="section-pad" id="why" aria-labelledby="why-title">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Why Northwise</span>
-          <h2 class="section-title" id="why-title">A mentor who recently walked this exact path.</h2>
-          <p class="lead">Not just a tutor. An accomplished older student who coaches habits, strategy, and confidence, then backs it with a rigorous, mastery-based system.</p>
-        </div>
-
-        <div class="why-grid">
-          <article class="why-card glass reveal">
-            <div class="num">01</div>
-            <h3>Mentor, not just a tutor</h3>
-            <p>Coaching on study habits, strategy, and confidence, from someone who recently aced this very path and remembers exactly where it gets hard.</p>
-          </article>
-          <article class="why-card glass reveal d1">
-            <div class="num">02</div>
-            <h3>Mastery through deliberate practice</h3>
-            <p>Students drill each skill to automaticity, then revisit it on a spaced schedule so it actually sticks, not just crams and fades.</p>
-          </article>
-          <article class="why-card glass reveal d2">
-            <div class="num">03</div>
-            <h3>1-on-1, fully personalized</h3>
-            <p>Every plan starts with a diagnostic and targets exactly where the student is, no generic worksheets, no wasted sessions.</p>
-          </article>
-          <article class="why-card glass reveal d3">
-            <div class="num">04</div>
-            <h3>Built for Cupertino rigor</h3>
-            <p>Designed for a demanding environment where even "regular" classes are hard, so students stay ahead without burning out.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!--  3 · COURSES                                              -->
-    <!-- ========================================================= -->
-    <section class="section-pad" id="courses" aria-labelledby="courses-title" style="background:linear-gradient(180deg,var(--fade-top),var(--cream));border-block:1px solid var(--line);">
-      <div class="bg-atmosphere">
-        <div class="blob gold" style="top:-90px;right:-60px;opacity:.2;"></div>
-        <div class="blob coral" style="bottom:-120px;left:-70px;opacity:.18;"></div>
-      </div>
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Courses</span>
-          <h2 class="section-title" id="courses-title">Three tracks. One clear path forward.</h2>
-          <p class="lead">Aligned to the traditional FUHSD sequence and beyond. Every course is 1-on-1 and starts from a diagnostic.</p>
-        </div>
-
-        <!-- MATH TRACK -->
-        <div class="track reveal">
-          <div class="track-head">
-            <div class="track-icon math"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2"><path d="M4 4h7v7H4zM13 13h7v7h-7z"/><path d="M14 4h6M17 1v6M4 17h7M7.5 13.5l-3 7"/></svg></div>
-            <div>
-              <h3 class="track-title">Mathematics</h3>
-              <p class="track-note">Traditional FUHSD sequence · Standard &amp; Accelerated tracks</p>
-            </div>
-          </div>
-          <div class="course-grid">
-            <!-- COURSE CARD (repeatable). href="#" → replace with detail-page route later -->
-            <a class="course-card" href="#courses" aria-label="Algebra 1, view course">
-              <div class="tags"><span class="tag tag-standard">Standard</span><span class="tag tag-accel">Accelerated</span></div>
-              <h4>Algebra 1</h4>
-              <p>Variables, linear equations, and functions, the bedrock every later course leans on.</p>
-              <span class="go">View course <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </a>
-            <a class="course-card" href="#courses" aria-label="Geometry, view course">
-              <div class="tags"><span class="tag tag-standard">Standard</span><span class="tag tag-accel">Accelerated</span></div>
-              <h4>Geometry</h4>
-              <p>Proofs, transformations, and spatial reasoning, where logic and rigor click together.</p>
-              <span class="go">View course <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </a>
-            <a class="course-card" href="#courses" aria-label="Algebra 2, view course">
-              <div class="tags"><span class="tag tag-standard">Standard</span><span class="tag tag-accel">Accelerated</span></div>
-              <h4>Algebra 2</h4>
-              <p>Polynomials, logarithms, and complex functions that set up all of precalculus.</p>
-              <span class="go">View course <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </a>
-            <a class="course-card" href="#courses" aria-label="Precalculus, view course">
-              <div class="tags"><span class="tag tag-standard">Standard</span><span class="tag tag-accel">Accelerated</span></div>
-              <h4>Precalculus</h4>
-              <p>Trigonometry, sequences, and limits, building fluency for the jump to calculus.</p>
-              <span class="go">View course <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </a>
-            <a class="course-card" href="#courses" aria-label="Calculus AB and BC, view course">
-              <div class="tags"><span class="tag tag-standard">AB</span><span class="tag tag-accel">BC</span></div>
-              <h4>Calculus (AB/BC)</h4>
-              <p>Derivatives, integrals, and series, taught for deep understanding, not just the exam.</p>
-              <span class="go">View course <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </a>
-          </div>
-        </div>
-
-        <!-- CODING TRACK -->
-        <div class="track reveal">
-          <div class="track-head">
-            <div class="track-icon code"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13 6l-2 12"/></svg></div>
-            <div>
-              <h3 class="track-title">Coding</h3>
-              <p class="track-note">From first program to real machine learning</p>
-            </div>
-          </div>
-          <div class="course-grid">
-            <a class="course-card" href="#courses" aria-label="Python Foundations, view course">
-              <div class="tags"><span class="tag tag-standard">Foundations</span></div>
-              <h4>Python Foundations</h4>
-              <p>Real programming from zero, logic, data structures, and clean problem-solving habits.</p>
-              <span class="go">View course <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </a>
-            <a class="course-card" href="#courses" aria-label="Machine Learning, view course">
-              <div class="tags"><span class="tag tag-accel">Advanced</span><span class="tag tag-req">Requires Python</span></div>
-              <h4>Machine Learning</h4>
-              <p>Hands-on ML with NumPy &amp; scikit-learn, models, data, and intuition. Python Foundations first.</p>
-              <span class="go">View course <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </a>
-          </div>
-        </div>
-
-        <!-- BIOLOGY TRACK -->
-        <div class="track reveal" style="margin-bottom:0;">
-          <div class="track-head">
-            <div class="track-icon bio"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2"><path d="M7 4c0 6 10 10 10 16M17 4c0 6-10 10-10 16M7 8h10M8 12h8M7 16h10"/></svg></div>
-            <div>
-              <h3 class="track-title">Biology</h3>
-              <p class="track-note">Strong start to high-school science</p>
-            </div>
-          </div>
-          <div class="course-grid">
-            <a class="course-card" href="#courses" aria-label="Freshman Biology, view course">
-              <div class="tags"><span class="tag tag-standard">Standard</span><span class="tag tag-accel">Honors-aligned</span></div>
-              <h4>Freshman Biology</h4>
-              <p>Cells, genetics, and systems, taught for retention and real understanding, standard or honors-aligned.</p>
-              <span class="go">View course <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!--  4 · THE NORTHWISE METHOD                                 -->
-    <!-- ========================================================= -->
-    <section class="section-pad on-navy" id="method" aria-labelledby="method-title">
-      <div class="bg-atmosphere">
-        <div class="blob gold"></div>
-        <div class="blob coral"></div>
-      </div>
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">The Northwise Method</span>
-          <h2 class="section-title" id="method-title">A four-beat cycle that makes knowledge stick.</h2>
-          <p class="lead">Every skill moves through the same loop until it's automatic, then keeps coming back so it never fades.</p>
-        </div>
-
-        <div class="stepper">
-          <article class="step glass reveal">
-            <div class="beat">01 <span class="line"></span></div>
-            <div class="ic-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a7 7 0 00-4 12.7V18h8v-2.3A7 7 0 0012 3zM9 21h6"/></svg></div>
-            <h4>Understand</h4>
-            <p>Build the concept from first principles until the "why" is genuinely clear.</p>
-          </article>
-          <article class="step glass reveal d1">
-            <div class="beat">02 <span class="line"></span></div>
-            <div class="ic-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H4zM8 21h8M9 9l2 2 4-4"/></svg></div>
-            <h4>See it worked</h4>
-            <p>Walk through a worked example together, step by deliberate step.</p>
-          </article>
-          <article class="step glass reveal d2">
-            <div class="beat">03 <span class="line"></span></div>
-            <div class="ic-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 019-9 9 9 0 018 5M21 12a9 9 0 01-9 9 9 9 0 01-8-5M8 3v4h4M16 21v-4h-4"/></svg></div>
-            <h4>Master it</h4>
-            <p>We practice each skill until it's fast, accurate, and second nature, the kind of fluency that holds up on test day.</p>
-          </article>
-          <article class="step glass reveal d3">
-            <div class="beat">04 <span class="line"></span></div>
-            <div class="ic-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 2M21 12a9 9 0 11-9-9M17 3l4 1-1 4"/></svg></div>
-            <h4>Retain</h4>
-            <p>Return to it on a spaced, cumulative schedule so it stays sharp.</p>
-          </article>
-        </div>
-
-        <!-- Supporting notes -->
-        <div class="method-notes">
-          <div class="note-card glass reveal">
-            <h5>Starts with a diagnostic</h5>
-            <p>Before anything else, we find the exact gaps, so every session targets what actually moves the needle.</p>
-          </div>
-          <div class="note-card glass reveal d1">
-            <h5>The mastery bar</h5>
-            <p>A skill only counts as mastered when your student can solve it <strong style="color:var(--gold-soft)">quickly, accurately, and on their own</strong>, every single time.</p>
-            <div class="mastery-bar" aria-hidden="true"><i></i></div>
-          </div>
-          <div class="note-card glass reveal d2">
-            <h5>Parent progress tracker</h5>
-            <p>Regular, plain-English updates on what's been mastered and what's next, so you're never guessing.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!--  5 · HOW IT WORKS                                         -->
-    <!-- ========================================================= -->
-    <section class="section-pad" id="how" aria-labelledby="how-title">
-      <div class="bg-atmosphere">
-        <div class="blob navy" style="top:-100px;left:-40px;opacity:.16;"></div>
-        <div class="blob gold" style="bottom:-120px;right:-50px;opacity:.2;"></div>
-      </div>
+    <section class="section-pad" id="how" aria-labelledby="how-title" style="border-top:1px solid var(--line);">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">How it works</span>
-          <h2 class="section-title" id="how-title">From first hello to measurable mastery.</h2>
+          <h2 class="section-title" id="how-title">Sign up, hear from us, attend sessions.</h2>
         </div>
 
-        <div class="how-grid">
-          <article class="how-step glass reveal">
-            <div class="n">1</div>
-            <h4>Book a free diagnostic</h4>
-            <p>A no-commitment placement session to pinpoint exactly where your student stands.</p>
-            <svg class="arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </article>
-          <article class="how-step glass reveal d1">
-            <div class="n">2</div>
-            <h4>Get a personalized plan</h4>
-            <p>A clear roadmap of skills to build, in the right order, at the right pace.</p>
-            <svg class="arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </article>
-          <article class="how-step glass reveal d2">
-            <div class="n">3</div>
-            <h4>Weekly 1-on-1 sessions</h4>
-            <p>Focused, mentor-led practice that builds real fluency and confidence.</p>
-            <svg class="arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </article>
-          <article class="how-step glass reveal d3">
-            <div class="n">4</div>
-            <h4>Track mastery</h4>
-            <p>Progress updates show exactly what's been mastered and what's coming next.</p>
-          </article>
+        <ol class="how-grid" style="list-style:none;padding:0;">
+          <li class="how-step glass reveal">
+            <div class="n" aria-hidden="true">1</div>
+            <h3 class="h4">Sign up</h3>
+            <p>A parent or guardian fills out a short form with the student's math course, the topics they need help with, and when they are free.</p>
+            <svg class="arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="how-step glass reveal d1">
+            <div class="n" aria-hidden="true">2</div>
+            <h3 class="h4">Hear from us</h3>
+            <p>We email the parent or guardian to talk through what the student needs and set a session time that works for your family and the tutor.</p>
+            <svg class="arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="how-step glass reveal d2">
+            <div class="n" aria-hidden="true">3</div>
+            <h3 class="h4">Attend sessions</h3>
+            <p>Sessions are online and run about 1.5 hours. Every session is group-based or visible to a parent, and tutors follow a shared curriculum.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!--  WHAT WE COVER                                            -->
+    <!-- ========================================================= -->
+    <section class="section-pad" id="cover" aria-labelledby="cover-title" style="background:var(--fade-top);border-block:1px solid var(--line);">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Courses</span>
+          <h2 class="section-title" id="cover-title">School math, from Pre-Algebra to AP Calculus BC.</h2>
+          <p class="lead" style="margin-top:14px;">Help is built around the course the student is taking right now.</p>
+        </div>
+        <ul class="hero-chips reveal" aria-label="Courses offered" style="list-style:none;padding:0;margin-top:0;">
+          <li class="chip">Pre-Algebra</li>
+          <li class="chip">Algebra 1</li>
+          <li class="chip">Geometry</li>
+          <li class="chip">Algebra 2 / Trigonometry</li>
+          <li class="chip">Precalculus</li>
+          <li class="chip">AP Calculus AB</li>
+          <li class="chip">AP Statistics</li>
+          <li class="chip">AP Calculus BC</li>
+        </ul>
+        <div class="hero-ctas reveal">
+          <a class="btn btn-outline" href="courses.html">See course details</a>
         </div>
       </div>
     </section>
 
     <!-- ========================================================= -->
-    <!--  6 · ABOUT / FOUNDER                                      -->
+    <!--  SAFETY                                                   -->
     <!-- ========================================================= -->
-    <section class="section-pad" id="about" aria-labelledby="about-title" style="background:linear-gradient(180deg,var(--cream),var(--fade-top));border-block:1px solid var(--line);">
+    <section class="section-pad" id="safety" aria-labelledby="safety-title">
       <div class="wrap">
-        <div class="about-grid">
-          <!-- FOUNDER PHOTO, replace the placeholder block with a real <img> -->
-          <div class="reveal">
-            <div class="founder-photo">
-              <div class="founder-badge">Founder &amp; Mentor</div>
-              <!-- PLACEHOLDER: drop in a modern, minimal founder photo:
-                   <img src="ekaagar.jpg" alt="Ekaagar Chawla, founder of Northwise" /> -->
-              <span class="initials" aria-hidden="true">EC</span>
-              <span class="ph-note">Placeholder, add a founder photo here</span>
-            </div>
-          </div>
+        <div class="section-head reveal">
+          <span class="eyebrow">Safety</span>
+          <h2 class="section-title" id="safety-title">How we keep sessions safe.</h2>
+          <p class="lead" style="margin-top:14px;">These rules apply to every session and every tutor.</p>
+        </div>
 
-          <div class="about-body reveal d1">
-            <span class="eyebrow">Meet your mentor</span>
-            <!-- FOUNDER BIO, edit freely -->
-            <h2 class="section-title">Hi, I'm Ekaagar, and I've just walked this path.</h2>
-            <p>
-              I'm <strong>Ekaagar Chawla</strong>, a student at <strong>Monta Vista High School</strong> in the heart of Cupertino.
-              I know this environment first-hand: the pace, the pressure, and what it actually takes to stay ahead without losing your footing.
-            </p>
-            <p>
-              I started Northwise because I kept seeing sharp, capable students treated like everyone else, handed generic worksheets
-              instead of a plan built around <em>them</em>. Good tutoring isn't just answering questions. It's mentorship: building the
-              habits, the strategy, and the quiet confidence that make hard classes feel manageable.
-            </p>
-            <p>
-              So that's what I do. I meet each student exactly where they are, drill the fundamentals to true mastery, and stay close
-              enough to notice when something clicks, or when it doesn't yet. Rigorous, personal, and genuinely in your corner.
-            </p>
-            <p class="sig">Ekaagar Chawla</p>
-
-            <!-- CREDENTIAL CHIPS, replace with your real credentials/awards -->
-            <div class="cred-row">
-              <span class="chip">Monta Vista High School</span>
-              <span class="chip">Math · Coding · Biology</span>
-              <span class="chip">Cupertino, CA</span>
-              <!-- PLACEHOLDER: e.g. "5.0 GPA", "AP Scholar", "USACO Gold", "Research/Awards" -->
-            </div>
-          </div>
+        <div class="safety-grid">
+          <article class="safety-item glass reveal">
+            <h3>Group-based or parent-visible</h3>
+            <p>Sessions either take place in a group or where a parent or guardian can see and hear them. Tutors do not meet students one-on-one out of view.</p>
+          </article>
+          <article class="safety-item glass reveal d1">
+            <h3>No private messaging</h3>
+            <!-- TODO: confirm how scheduling messages are sent (for example, from a Northwise address with the parent copied) -->
+            <p>Tutors and students do not message each other directly (unless consented by the parent). Scheduling and updates go to the parent or guardian email you give us.</p>
+          </article>
+          <article class="safety-item glass reveal d2">
+            <h3>Code of conduct</h3>
+            <p>Every tutor agrees to the <a href="code-of-conduct.html">Northwise tutor code of conduct</a> and is trained on it before working with students.</p>
+          </article>
+          <article class="safety-item glass reveal d3">
+            <h3>Raising a concern</h3>
+            <p>If anything about a session worries you, email <a href="mailto:ekaagar.chawla@gmail.com">ekaagar.chawla@gmail.com</a>. A parent or guardian can stop tutoring at any time.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!--  7 · PRICING                                              -->
-    <!-- ========================================================= -->
-    <section class="section-pad" id="pricing" aria-labelledby="pricing-title">
-      <div class="bg-atmosphere">
-        <div class="blob coral" style="top:-80px;left:-50px;opacity:.18;"></div>
-        <div class="blob gold" style="bottom:-120px;right:-60px;opacity:.2;"></div>
-      </div>
+    <section class="section-pad cta-band" aria-labelledby="cta-title">
       <div class="wrap">
-        <div class="section-head reveal" style="margin-inline:auto;text-align:center;">
-          <span class="eyebrow" style="justify-content:center;">Pricing</span>
-          <h2 class="section-title" id="pricing-title">Transparent rates. Start with a free diagnostic.</h2>
-          <p class="lead" style="margin-inline:auto;">No hidden fees, no long contracts. Packages are the best value, most families start there after the diagnostic.</p>
-        </div>
-
-        <div class="price-grid">
-          <!-- Single session -->
-          <div class="price-card reveal">
-            <span class="plan">Single Session</span>
-            <h3>Pay as you go</h3>
-            <!-- PRICE PLACEHOLDER: replace [30] -->
-            <div class="price">$<span data-price>30</span><span class="per"> / hour</span></div>
-            <p class="plan-desc">60-minute 1-on-1 session. Perfect for a specific topic or a quick tune-up.</p>
-            <ul class="price-feats">
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> One 60-min 1-on-1 session</li>
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Personalized to the topic you bring</li>
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> No commitment</li>
-            </ul>
-            <a class="btn btn-outline" href="#contact">Book a session</a>
-          </div>
-
-          <!-- Course package (FEATURED / recommended) -->
-          <div class="price-card featured reveal d1">
-            <span class="featured-flag">Best value</span>
-            <span class="plan">Course Package</span>
-            <h3>Committed progress</h3>
-            <!-- PRICE PLACEHOLDER: replace [215] and [8] -->
-            <div class="price">$<span data-price>215</span><span class="per"> / <span data-price>8</span> sessions</span></div>
-            <p class="plan-desc">Eight 1-on-1 sessions on a weekly rhythm. Save <strong style="color:var(--gold-soft)">10%</strong> vs. single sessions.</p>
-            <ul class="price-feats">
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 8 sessions on a consistent weekly cadence</li>
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Personalized mastery plan + spaced review</li>
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Parent progress tracker included</li>
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Best value per session</li>
-            </ul>
-            <a class="btn btn-primary" href="#contact">Start a package</a>
-          </div>
-
-          <!-- Advanced / ML / Exam prep -->
-          <div class="price-card reveal d2">
-            <span class="plan">Advanced &amp; Exam Prep</span>
-            <h3>Deep-focus sessions</h3>
-            <!-- PRICE PLACEHOLDER: replace [40] -->
-            <div class="price">$<span data-price>40</span><span class="per"> / 90 min</span></div>
-            <p class="plan-desc">Extended 90-minute sessions for ML, accelerated tracks, and exam preparation.</p>
-            <ul class="price-feats">
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> 90-minute deep-focus session</li>
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Machine Learning &amp; accelerated topics</li>
-              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Targeted exam / AP preparation</li>
-            </ul>
-            <a class="btn btn-outline" href="#contact">Book advanced</a>
-          </div>
-        </div>
-
-        <!-- Free diagnostic banner -->
-        <div class="price-free glass reveal">
-          <div>
-            <h4>Free Placement Diagnostic: <span style="color:var(--coral-600)">$0</span></h4>
-            <p>No commitment. It's how every Northwise plan begins.</p>
-          </div>
-          <a class="btn btn-gold btn-specular" href="#contact"><span>Book your free diagnostic</span></a>
-        </div>
-
-        <p class="price-note reveal">Transparent pricing. No hidden fees. Start with a free diagnostic.</p>
-      </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!--  8 · FAQ                                                  -->
-    <!-- ========================================================= -->
-    <section class="section-pad" id="faq" aria-labelledby="faq-title" style="background:linear-gradient(180deg,var(--fade-top),var(--cream));border-block:1px solid var(--line);">
-      <div class="wrap">
-        <div class="section-head reveal" style="margin-inline:auto;text-align:center;">
-          <span class="eyebrow" style="justify-content:center;">FAQ</span>
-          <h2 class="section-title" id="faq-title">Questions parents ask first.</h2>
-        </div>
-
-        <div class="faq-grid">
-          <!-- Using <details> for native keyboard + a11y; JS enhances animation -->
-          <details class="faq-item reveal">
-            <summary class="faq-q">What subjects do you tutor?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-            <div class="faq-a"><p>Mathematics across the full FUHSD sequence (Algebra 1 through Calculus AB/BC), coding (Python Foundations and Machine Learning with NumPy &amp; scikit-learn), and Freshman Biology, each available at standard or accelerated/honors-aligned levels.</p></div>
-          </details>
-
-          <details class="faq-item reveal">
-            <summary class="faq-q">How does the diagnostic work?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-            <div class="faq-a"><p>It's a free, no-commitment placement session. We work through a targeted set of problems to find exactly which skills are solid and which have gaps, then turn that into a personalized plan, before you ever pay for anything.</p></div>
-          </details>
-
-          <details class="faq-item reveal">
-            <summary class="faq-q">Are sessions online or in person?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-            <!-- PLACEHOLDER: specify your actual format (in-person in Cupertino / online / both) -->
-            <div class="faq-a"><p><span class="hl">[SPECIFY]</span>, e.g. "Sessions are held in person in Cupertino, with online sessions available on request." Edit this answer to match how you actually run sessions.</p></div>
-          </details>
-
-          <details class="faq-item reveal">
-            <summary class="faq-q">How do you track progress?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-            <div class="faq-a"><p>Each skill is tracked against a clear mastery bar. A skill is mastered only when your student can solve it quickly and accurately on their own, every time. Parents receive regular, plain-English progress updates showing what's been mastered and what's coming next.</p></div>
-          </details>
-
-          <details class="faq-item reveal">
-            <summary class="faq-q">What ages and grades do you work with?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-            <div class="faq-a"><p>Primarily 8th graders through high schoolers, students moving through (or preparing for) the FUHSD math, science, and coding sequences.</p></div>
-          </details>
-
-          <details class="faq-item reveal">
-            <summary class="faq-q">What makes this different from other tutors?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-            <div class="faq-a"><p>Mentorship plus a real system. You get an accomplished older student who recently walked this exact path and coaches habits and confidence, backed by a mastery-based method with diagnostics, deliberate practice, and spaced review. Not generic worksheets.</p></div>
-          </details>
-
-          <details class="faq-item reveal">
-            <summary class="faq-q">How do I get started?<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16264A" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-            <div class="faq-a"><p>Book a free diagnostic using the form below (or email directly). We'll schedule the placement session, build a personalized plan, and go from there, no pressure, no commitment.</p></div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!--  9 · FINAL CTA + CONTACT                                  -->
-    <!-- ========================================================= -->
-    <section class="section-pad on-navy" id="contact" aria-labelledby="contact-title">
-      <div class="bg-atmosphere">
-        <div class="blob gold"></div>
-        <div class="blob coral"></div>
-      </div>
-      <div class="wrap">
-        <div class="cta-grid">
-          <div class="cta-copy reveal">
-            <span class="eyebrow">Get started</span>
-            <h2 id="contact-title">Ready to start? <span class="g">Book a free diagnostic.</span></h2>
-            <p>Tell me a little about your student and I'll be in touch to schedule the placement session, no commitment, no pressure.</p>
-
-            <div class="quick">
-              <!-- PLACEHOLDER: replace with your real contact email -->
-              <a href="mailto:ekaagar.chawla@gmail.com">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg>
-                ekaagar.chawla@gmail.com
-              </a>
-              <a href="#top">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.6-7-11a7 7 0 0114 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-                Cupertino, California
-              </a>
-            </div>
-          </div>
-
-          <!-- CONTACT FORM, wired to mailto (no backend). Swap the action/JS for a form service if you prefer. -->
-          <form class="contact-card glass reveal d1" id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="field">
-                <label for="f-name">Your name</label>
-                <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Parent or student name" required />
-              </div>
-              <div class="field">
-                <label for="f-email">Email</label>
-                <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="f-grade">Student grade</label>
-                <select id="f-grade" name="grade">
-                  <option value="" disabled selected>Select grade</option>
-                  <option>8th grade</option>
-                  <option>9th grade</option>
-                  <option>10th grade</option>
-                  <option>11th grade</option>
-                  <option>12th grade</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="f-subject">Subject of interest</label>
-                <select id="f-subject" name="subject">
-                  <option value="" disabled selected>Select subject</option>
-                  <optgroup label="Mathematics">
-                    <option>Algebra 1</option>
-                    <option>Geometry</option>
-                    <option>Algebra 2</option>
-                    <option>Precalculus</option>
-                    <option>Calculus (AB/BC)</option>
-                  </optgroup>
-                  <optgroup label="Coding">
-                    <option>Python Foundations</option>
-                    <option>Machine Learning</option>
-                  </optgroup>
-                  <optgroup label="Biology">
-                    <option>Freshman Biology</option>
-                  </optgroup>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="f-message">Message</label>
-              <textarea id="f-message" name="message" placeholder="What would you like help with? Any goals, timelines, or concerns?"></textarea>
-            </div>
-
-            <button class="btn btn-primary btn-specular" type="submit" style="width:100%;"><span>Book a free diagnostic</span></button>
-            <p class="form-note">This opens your email app with the details pre-filled. Prefer email? Write to <a href="mailto:ekaagar.chawla@gmail.com" style="color:var(--gold-soft);font-weight:700;">ekaagar.chawla@gmail.com</a>.</p>
-          </form>
+        <span class="eyebrow">Get involved</span>
+        <h2 id="cta-title" style="margin-top:14px;">Free math help for students who would otherwise go without.</h2>
+        <p>Students in grades 7 to 11 can sign up for a tutor at no cost. If you have recently finished these courses, you can apply to teach them.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="get-a-tutor.html">Get a tutor</a>
+          <a class="btn btn-outline" href="volunteer.html">Become a tutor</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ============================================================= -->
-  <!--  FOOTER                                                       -->
-  <!-- ============================================================= -->
   <footer>
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <a href="#top" class="brand"><svg class="mark" aria-hidden="true"><use href="#mark"/></svg> Northwise</a>
-          <p class="footer-tag">Cupertino's mentor-led path from fundamentals to advanced STEM. 1-on-1 tutoring in math, coding, and biology.</p>
+          <a href="index.html" class="brand"><svg class="mark" aria-hidden="true"><use href="#mark"/></svg> Northwise</a>
+          <p class="footer-tag">Northwise is a free, student-run community tutoring initiative. We offer free math help, from school-level courses up to advanced topics, for students in grades 7 to 11 who would otherwise go without.</p>
         </div>
         <div class="footer-col">
-          <h6>Explore</h6>
-          <a href="#courses">Courses</a>
-          <a href="#method">Method</a>
-          <a href="#about">About</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
+          <h2 class="h6">Explore</h2>
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="about.html">About</a>
+          <a href="faq.html">FAQ</a>
+          <a href="index.html#safety">Safety</a>
+          <a href="code-of-conduct.html">Code of conduct</a>
         </div>
         <div class="footer-col">
-          <h6>Get in touch</h6>
-          <!-- PLACEHOLDER: replace with your real email -->
+          <h2 class="h6">Get involved</h2>
+          <a href="get-a-tutor.html">Get a tutor</a>
+          <a href="volunteer.html">Become a tutor</a>
+          <!-- TODO: confirm the public contact email (consider a dedicated Northwise address) -->
           <a href="mailto:ekaagar.chawla@gmail.com">ekaagar.chawla@gmail.com</a>
-          <a href="#contact">Book a diagnostic</a>
           <span style="display:block;padding:6px 0;font-size:14.5px;">Cupertino, CA</span>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span id="year">2026</span> Northwise. All rights reserved.</span>
-        <span>Rigorous · Personalized · Mastery-based</span>
+        <span>&copy; <span id="year">2026</span> Northwise</span>
+        <span>Free, student-run community tutoring</span>
       </div>
     </div>
   </footer>
 
-  <!-- ============================================================= -->
-  <!--  JAVASCRIPT, nav, accordion animation, scroll reveal, form   -->
-  <!-- ============================================================= -->
-  <script>
-  (function () {
-    'use strict';
-
-    /* ---- Mobile nav toggle ---- */
-    var toggle = document.getElementById('navToggle');
-    var links = document.getElementById('navLinks');
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    // Close menu when a link is tapped (mobile)
-    links.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    /* ---- Navbar shadow on scroll ---- */
-    var nav = document.getElementById('nav');
-    var onScroll = function () {
-      nav.classList.toggle('scrolled', window.scrollY > 10);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    /* ---- Active nav link via IntersectionObserver ---- */
-    var navA = Array.prototype.slice.call(links.querySelectorAll('a.navlink'));
-    var map = {};
-    navA.forEach(function (a) {
-      var id = a.getAttribute('href').slice(1);
-      var sec = document.getElementById(id);
-      if (sec) map[id] = a;
-    });
-    // Map some sections to the nearest relevant nav link
-    var watch = ['courses', 'method', 'about', 'pricing'];
-    var secObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          navA.forEach(function (a) { a.classList.remove('active'); });
-          var id = e.target.id;
-          if (map[id]) map[id].classList.add('active');
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-    watch.forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) secObserver.observe(el);
-    });
-
-    /* ---- Dark / light theme switch (elastic slider) ---- */
-    (function () {
-      var root = document.documentElement;
-      var sw = document.getElementById('themeSwitch');
-      if (!sw) return;
-      function sync() {
-        sw.setAttribute('aria-checked', root.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
-      }
-      sync();
-      sw.addEventListener('click', function () {
-        var toDark = root.getAttribute('data-theme') !== 'dark';
-        root.classList.add('theme-animating');            // enable smooth cross-fade
-        if (toDark) root.setAttribute('data-theme', 'dark');
-        else root.removeAttribute('data-theme');
-        try { localStorage.setItem('nw-theme', toDark ? 'dark' : 'light'); } catch (e) {}
-        sync();
-        clearTimeout(sw._t);
-        sw._t = setTimeout(function () { root.classList.remove('theme-animating'); }, 600);
-      });
-    })();
-
-    /* ---- FluidGlass hover lens over the 4 nav titles ---- */
-    (function () {
-      var navLinks = document.getElementById('navLinks');
-      if (!navLinks || !window.matchMedia('(min-width: 821px)').matches) return;
-      var lens = document.createElement('span');
-      lens.className = 'nav-lens';
-      navLinks.insertBefore(lens, navLinks.firstChild);
-      var items = Array.prototype.slice.call(navLinks.querySelectorAll('a.navlink'));
-      var PAD = 12;
-      function moveTo(el) {
-        lens.style.width = (el.offsetWidth + PAD) + 'px';
-        lens.style.left = (el.offsetLeft - PAD / 2) + 'px';
-        lens.classList.add('show');
-      }
-      items.forEach(function (a) {
-        a.addEventListener('pointerenter', function () { moveTo(a); });
-      });
-      navLinks.addEventListener('pointerleave', function () { lens.classList.remove('show'); });
-    })();
-
-    /* ---- SideRays: exact React Bits shader, white light, dark mode only ---- */
-    (function () {
-      var host = document.querySelector('.side-rays');
-      if (!host) return;
-      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var gl = null, canvas = null, program = null, U = {}, raf = null, t0 = 0;
-
-      var vert = 'attribute vec2 position;void main(){gl_Position=vec4(position,0.0,1.0);}';
-      var frag = [
-        'precision highp float;',
-        'uniform float iTime;uniform vec2 iResolution;uniform float iSpeed;',
-        'uniform vec3 iRayColor1;uniform vec3 iRayColor2;uniform float iIntensity;',
-        'uniform float iSpread;uniform float iFlipX;uniform float iFlipY;uniform float iTilt;',
-        'uniform float iSaturation;uniform float iBlend;uniform float iFalloff;uniform float iOpacity;',
-        'float rayStrength(vec2 raySource,vec2 rayRefDirection,vec2 coord,float seedA,float seedB,float speed){',
-        '  vec2 sourceToCoord=coord-raySource;',
-        '  float cosAngle=dot(normalize(sourceToCoord),rayRefDirection);',
-        '  return clamp((0.45+0.15*sin(cosAngle*seedA+iTime*speed))+(0.3+0.2*cos(-cosAngle*seedB+iTime*speed)),0.0,1.0)*clamp((iResolution.x-length(sourceToCoord))/iResolution.x,0.5,1.0);',
-        '}',
-        'void main(){',
-        '  vec2 fragCoord=gl_FragCoord.xy;',
-        '  if(iFlipX>0.5)fragCoord.x=iResolution.x-fragCoord.x;',
-        '  if(iFlipY>0.5)fragCoord.y=iResolution.y-fragCoord.y;',
-        '  vec2 coord=vec2(fragCoord.x,iResolution.y-fragCoord.y);',
-        '  vec2 rayPos=vec2(iResolution.x*1.1,-0.5*iResolution.y);',
-        '  float tiltRad=iTilt*3.14159265/180.0;float cs=cos(tiltRad);float sn=sin(tiltRad);',
-        '  vec2 rel=coord-rayPos;',
-        '  vec2 tiltedCoord=vec2(rel.x*cs-rel.y*sn,rel.x*sn+rel.y*cs)+rayPos;',
-        '  float halfSpread=iSpread*0.275;',
-        '  vec2 rayRefDir1=normalize(vec2(cos(0.785398+halfSpread),sin(0.785398+halfSpread)));',
-        '  vec2 rayRefDir2=normalize(vec2(cos(0.785398-halfSpread),sin(0.785398-halfSpread)));',
-        '  vec4 rays1=vec4(iRayColor1,1.0)*rayStrength(rayPos,rayRefDir1,tiltedCoord,36.2214,21.11349,iSpeed);',
-        '  vec4 rays2=vec4(iRayColor2,1.0)*rayStrength(rayPos,rayRefDir2,tiltedCoord,22.3991,18.0234,iSpeed*0.2);',
-        '  vec4 color=rays1*(1.0-iBlend)*0.9+rays2*iBlend*0.9;',
-        '  float distanceToLight=length(fragCoord.xy-vec2(rayPos.x,iResolution.y-rayPos.y))/iResolution.y;',
-        '  float brightness=iIntensity*0.4/pow(max(distanceToLight,0.001),iFalloff);',
-        '  color.rgb*=brightness;',
-        '  float gray=dot(color.rgb,vec3(0.299,0.587,0.114));',
-        '  color.rgb=mix(vec3(gray),color.rgb,iSaturation);',
-        '  color.a=max(color.r,max(color.g,color.b))*iOpacity;',
-        '  gl_FragColor=color;',
-        '}'
-      ].join('\n');
-
-      function compile(type, src) {
-        var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s;
-      }
-      function init() {
-        if (gl) return true;
-        canvas = document.createElement('canvas');
-        host.appendChild(canvas);
-        gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false, antialias: true });
-        if (!gl) return false;
-        program = gl.createProgram();
-        gl.attachShader(program, compile(gl.VERTEX_SHADER, vert));
-        gl.attachShader(program, compile(gl.FRAGMENT_SHADER, frag));
-        gl.linkProgram(program);
-        gl.useProgram(program);
-        var buf = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-        var loc = gl.getAttribLocation(program, 'position');
-        gl.enableVertexAttribArray(loc);
-        gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-        ['iTime', 'iResolution', 'iSpeed', 'iRayColor1', 'iRayColor2', 'iIntensity', 'iSpread',
-         'iFlipX', 'iFlipY', 'iTilt', 'iSaturation', 'iBlend', 'iFalloff', 'iOpacity']
-          .forEach(function (n) { U[n] = gl.getUniformLocation(program, n); });
-        // Library defaults, but WHITE rays and top-right origin
-        gl.uniform1f(U.iSpeed, 2.5);
-        gl.uniform3f(U.iRayColor1, 1, 1, 1);
-        gl.uniform3f(U.iRayColor2, 1, 1, 1);
-        gl.uniform1f(U.iIntensity, 2.0);
-        gl.uniform1f(U.iSpread, 2.0);
-        gl.uniform1f(U.iFlipX, 0.0);
-        gl.uniform1f(U.iFlipY, 0.0);
-        gl.uniform1f(U.iTilt, 0.0);
-        gl.uniform1f(U.iSaturation, 1.5);
-        gl.uniform1f(U.iBlend, 0.75);
-        gl.uniform1f(U.iFalloff, 1.6);
-        gl.uniform1f(U.iOpacity, 1.0);
-        resize();
-        window.addEventListener('resize', resize, { passive: true });
-        return true;
-      }
-      function resize() {
-        if (!gl) return;
-        var dpr = Math.min(window.devicePixelRatio || 1, 2);
-        var w = Math.max(1, host.clientWidth), h = Math.max(1, host.clientHeight);
-        canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-        gl.viewport(0, 0, canvas.width, canvas.height);
-        gl.uniform2f(U.iResolution, canvas.width, canvas.height);
-      }
-      function draw(time) {
-        gl.uniform1f(U.iTime, time);
-        gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
-      }
-      function frame(t) {
-        if (!gl) return;
-        if (!t0) t0 = t;
-        draw((t - t0) * 0.001);
-        raf = requestAnimationFrame(frame);
-      }
-      function play() {
-        if (!init()) return;
-        resize();
-        if (reduceMotion) { draw(1.0); return; }   // single static frame
-        if (!raf) { t0 = 0; raf = requestAnimationFrame(frame); }
-      }
-      function stop() {
-        if (raf) { cancelAnimationFrame(raf); raf = null; }
-        if (gl) { gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); }
-      }
-      function apply() {
-        if (document.documentElement.getAttribute('data-theme') === 'dark') play();
-        else stop();
-      }
-      apply();
-      new MutationObserver(apply).observe(document.documentElement,
-        { attributes: true, attributeFilter: ['data-theme'] });
-    })();
-
-    /* ---- Scroll reveal ---- */
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var reveals = document.querySelectorAll('.reveal');
-    if (reduce || !('IntersectionObserver' in window)) {
-      reveals.forEach(function (el) { el.classList.add('in'); });
-    } else {
-      var revObserver = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      reveals.forEach(function (el) { revObserver.observe(el); });
-    }
-
-    /* ---- FAQ accordion: single-open + smooth (uses native <details>) ---- */
-    var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
-    faqItems.forEach(function (item) {
-      item.addEventListener('toggle', function () {
-        if (item.open) {
-          faqItems.forEach(function (other) {
-            if (other !== item) other.open = false;
-          });
-        }
-      });
-    });
-
-    /* ---- Contact form → mailto (no backend) ---- */
-    var form = document.getElementById('contactForm');
-    // PLACEHOLDER: change the recipient email here
-    var RECIPIENT = 'ekaagar.chawla@gmail.com';
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      var data = new FormData(form);
-      var name = (data.get('name') || '').trim();
-      var email = (data.get('email') || '').trim();
-      var grade = data.get('grade') || 'Not specified';
-      var subject = data.get('subject') || 'Not specified';
-      var message = (data.get('message') || '').trim();
-
-      var body =
-        'Name: ' + name + '\n' +
-        'Email: ' + email + '\n' +
-        'Student grade: ' + grade + '\n' +
-        'Subject of interest: ' + subject + '\n\n' +
-        'Message:\n' + message + '\n';
-
-      var mailto = 'mailto:' + RECIPIENT +
-        '?subject=' + encodeURIComponent('Free Diagnostic Request: ' + name) +
-        '&body=' + encodeURIComponent(body);
-      window.location.href = mailto;
-    });
-
-    /* ---- Tilted pricing cards (React Bits-style 3D tilt + glare) ---- */
-    if (!reduce && window.matchMedia('(hover: hover)').matches) {
-      var MAX_TILT = 9; // degrees
-      document.querySelectorAll('.price-card').forEach(function (card) {
-        var glare = document.createElement('span');
-        glare.className = 'tilt-glare';
-        card.appendChild(glare);
-        var baseY = card.classList.contains('featured') ? -8 : 0;
-        card.addEventListener('pointermove', function (e) {
-          var r = card.getBoundingClientRect();
-          var px = (e.clientX - r.left) / r.width;
-          var py = (e.clientY - r.top) / r.height;
-          var rx = (0.5 - py) * MAX_TILT * 2;
-          var ry = (px - 0.5) * MAX_TILT * 2;
-          card.style.transform = 'perspective(1200px) translateY(' + baseY +
-            'px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) scale(1.03)';
-          glare.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
-          glare.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
-          card.classList.add('tilting');
-        });
-        card.addEventListener('pointerleave', function () {
-          card.style.transform = 'translateY(' + baseY + 'px)';
-          card.classList.remove('tilting');
-        });
-      });
-    }
-
-    /* ---- Specular buttons (light highlight tracks the cursor) ---- */
-    document.querySelectorAll('.btn-specular').forEach(function (btn) {
-      btn.addEventListener('pointermove', function (e) {
-        var r = btn.getBoundingClientRect();
-        btn.style.setProperty('--spec-x', (e.clientX - r.left) + 'px');
-        btn.style.setProperty('--spec-y', (e.clientY - r.top) + 'px');
-      });
-    });
-
-    /* ---- Footer year ---- */
-    document.getElementById('year').textContent = new Date().getFullYear();
-  })();
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
